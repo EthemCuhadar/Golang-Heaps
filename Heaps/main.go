@@ -15,8 +15,12 @@ func (h *Heap) Insert(key int){
 // Extract - Eliminates the element which has the largest key in the heap.
 
 
+// maxHeapifyUp - Compare and change indices of child and parent elements.
 func (h *Heap) maxHeapifyUp(index int){
-	
+	for h.array[parent(index)] < h.array[index]{
+		h.swap(parent(index), index)
+		index = parent(index)
+	}
 }
 
 // parent - Returns parent index of an element.
@@ -37,4 +41,9 @@ func right(i int) int{
 // swap - Simply swaps two elements in array.
 func (h *Heap) swap(i1, i2 int){
 	h.array[i1], h.array[i2] = h.array[i2], h.array[i1]
+}
+
+func main(){
+	H := &Heap{}
+	fmt.Println(H)
 }
