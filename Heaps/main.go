@@ -46,4 +46,10 @@ func (h *Heap) swap(i1, i2 int){
 func main(){
 	H := &Heap{}
 	fmt.Println(H)
+	
+	buildHeap := []int{100, 200, 300}
+	for _, v := range buildHeap{
+		H.Insert(v)
+		fmt.Println(H)
+	}
 }
